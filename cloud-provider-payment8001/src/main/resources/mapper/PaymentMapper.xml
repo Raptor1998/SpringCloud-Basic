@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.raptor.dao.PaymentDao">
+    <resultMap id="BaseResultMap" type="com.raptor.entity.domain.Payment">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <id column="serial" jdbcType="VARCHAR" property="serial"/>
+    </resultMap>
+
+    <!--    Integer create(Payment payment);-->
+    <insert id="create" parameterType="com.raptor.entity.domain.Payment" useGeneratedKeys="true" keyProperty="id">
+        insert into payment(serial)
+        values (#{serial})
+    </insert>
+
+    <!--    Payment getPaymentById(@Param("id") Long id);-->
+    <select id="getPaymentById" resultMap="BaseResultMap">
+        select id, serial
+        from payment
+        where id = #{id}
+    </select>
+
+</mapper>

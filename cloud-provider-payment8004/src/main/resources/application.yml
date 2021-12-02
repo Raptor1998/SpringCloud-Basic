@@ -1,0 +1,14 @@
+server:
+  port: 8004
+spring:
+  application:
+    name: cloud-payment-service
+
+  devtools:
+    livereload:
+      port: 35704
+
+  cloud:
+    zookeeper:
+      connect-string: 182.254.146.46:2181
+

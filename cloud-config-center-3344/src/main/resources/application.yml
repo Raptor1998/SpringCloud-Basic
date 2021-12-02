@@ -1,0 +1,38 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/raptor_cwh/sprincloud-config.git
+#          uri: git@gitee.com:raptor_cwh/sprincloud-config.git
+          search-paths:
+            - springcloud-config
+          strict-host-key-checking: false
+          force-pull: false
+          timeout: 50
+      username: 18758159060
+      password: 032308....
+
+      label: master
+      request-connect-timeout: 5000000
+  rabbitmq:
+    username: guest
+    password: guest
+    host: 116.62.143.127
+    port: 5672
+
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://eureka7001.com:7001/eureka
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
